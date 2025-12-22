@@ -12,28 +12,14 @@ A Flutter FFI plugin for real-time document capture preprocessing. Uses OpenCV f
 
 ## Screenshot
 
-![Screenshot](screenshot.png)
+### A/B Test Comparison
+![Compare](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/compare.PNG)
 
-## Demo
+### Preprocessing Results
 
-### A/B Test
-Real-time comparison between instant capture and processed results.
-
-<!-- TODO: Add demo video -->
-
-### Batch Test
-Compare recognition accuracy with preprocessing ON vs OFF.
-
-<!-- TODO: Add demo video -->
-
-## Results
-
-Preprocessing significantly improves OCR recognition accuracy and stability.
-
-| Mode | Avg Score | Success Rate |
-|------|-----------|--------------|
-| OFF  | --% | --% |
-| ON   | --% | --% |
+| Processed OFF | Processed ON |
+|:-------------:|:------------:|
+| ![OFF](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/processed_off.PNG) | ![ON](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/processed_on.PNG) |
 
 ## Why Use This Package?
 
