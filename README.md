@@ -21,6 +21,37 @@ A Flutter FFI plugin for real-time document capture preprocessing. Uses OpenCV f
 |:-------------:|:------------:|
 | ![OFF](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/processed_off.PNG) | ![ON](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/processed_on.PNG) |
 
+## Processing Flow
+
+```
+1. Camera Preview
+       |
+       v
+2. Real-time Frame Analysis (analyzeFrame)
+   - Document corner detection
+   - Quality assessment (blur, brightness, stability)
+       |
+       v
+3. Auto-capture when quality thresholds met (captureReady = true)
+       |
+       v
+4. Perspective Correction + Image Enhancement (enhanceImageWithGuideFrame)
+       |
+       v
+5. Layout Detection + OCR (flutter_ocr_kit)
+       |
+       v
+6. Display Recognition Results
+```
+
+## Example App Setup
+
+The example app requires a layout detection model for OCR:
+
+1. Download [pp_doclayout_l.onnx](https://github.com/robert008/flutter_ocr_kit/releases/download/v1.0.0/pp_doclayout_l.onnx) (123 MB)
+2. Place it in `example/assets/`
+3. Run the example app
+
 ## Why Use This Package?
 
 | Benefit | Description |
