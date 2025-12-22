@@ -1,0 +1,101 @@
+// The Android Gradle Plugin builds the native code with the Android NDK.
+
+group = "com.example.flutter_document_capture"
+version = "1.0"
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.7.0")
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: "com.android.library"
+
+// Pre-built native libraries configuration (same pattern as flutter_ocr_kit)
+def jniLibsDir = file("src/main/jniLibs")
+def arm64Dir = file("src/main/jniLibs/arm64-v8a")
+def releaseVersion = "v1.0.0"
+// TODO: Update this URL when GitHub release is created
+def downloadUrl = "https://github.com/anthropics/flutter_document_capture/releases/download/${releaseVersion}/jniLibs.zip"
+
+task downloadNativeLibraries {
+    doLast {
+        // Check if native libraries already exist
+        if (arm64Dir.exists() && file("${arm64Dir}/libflutter_document_capture.so").exists()) {
+            println "Android native libraries already exist"
+            return
+        }
+
+        println "Downloading Android native libraries..."
+        println "URL: ${downloadUrl}"
+
+        def zipFile = file("${buildDir}/jniLibs.zip")
+        zipFile.parentFile.mkdirs()
+
+        ant.get(src: downloadUrl, dest: zipFile, skipexisting: 'false')
+
+        jniLibsDir.mkdirs()
+        ant.unzip(src: zipFile, dest: jniLibsDir)
+
+        zipFile.delete()
+
+        println "Android native libraries downloaded successfully"
+    }
+}
+
+// Skip download task for now since we're building locally
+// preBuild.dependsOn downloadNativeLibraries
+
+android {
+    namespace = "com.example.flutter_document_capture"
+
+    compileSdk = 35
+
+    // Use default NDK version for ABI compatibility with pre-built OpenCV
+    // ndkVersion = "27.0.12077973"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    defaultConfig {
+        minSdk = 21
+
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a'
+        }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17 -frtti -fexceptions"
+                arguments "-DANDROID_STL=c++_shared"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = "../src/CMakeLists.txt"
+            version "3.22.1"
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+}
