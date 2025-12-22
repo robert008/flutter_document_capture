@@ -13,7 +13,7 @@ A Flutter FFI plugin for real-time document capture preprocessing. Uses OpenCV f
 ## Screenshot
 
 ### A/B Test Comparison
-![Compare](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/compare.PNG)
+<img src="https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/compare.PNG" width="400">
 
 ### Preprocessing Results
 
