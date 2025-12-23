@@ -21,6 +21,12 @@ A Flutter FFI plugin for real-time document capture preprocessing. Uses OpenCV f
 |:-------------:|:------------:|
 | ![OFF](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/processed_off.PNG) | ![ON](https://github.com/robert008/flutter_document_capture/releases/download/v0.0.1/processed_on.PNG) |
 
+## Demo Video
+
+Batch test comparing preprocessing ON vs OFF:
+
+[![Demo Video](https://img.youtube.com/vi/aQYMmPEwBUo/0.jpg)](https://youtube.com/shorts/aQYMmPEwBUo)
+
 ## Processing Flow
 
 ```
