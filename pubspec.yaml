@@ -4,6 +4,11 @@ version: 0.0.1
 homepage: https://github.com/robert008/flutter_document_capture
 repository: https://github.com/robert008/flutter_document_capture
 issue_tracker: https://github.com/robert008/flutter_document_capture/issues
+topics:
+  - opencv
+  - ocr
+  - document-scanner
+  - image-processing
 
 environment:
   sdk: ^3.7.2

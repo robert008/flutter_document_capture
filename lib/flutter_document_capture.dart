@@ -107,7 +107,7 @@ class DocumentCaptureEngine {
         cropH,
       );
 
-      if (resultPtr == null || resultPtr == nullptr) {
+      if (resultPtr == nullptr) {
         return FrameAnalysisResult.error('Analysis failed');
       }
 
@@ -184,7 +184,7 @@ class DocumentCaptureEngine {
         outputHeight,
       );
 
-      if (resultPtr == null || resultPtr == nullptr) {
+      if (resultPtr == nullptr) {
         return EnhancementResult.error('Enhancement failed');
       }
 
@@ -277,7 +277,7 @@ class DocumentCaptureEngine {
         rotation,
       );
 
-      if (resultPtr == null || resultPtr == nullptr) {
+      if (resultPtr == nullptr) {
         return EnhancementResult.error('Enhancement failed');
       }
 

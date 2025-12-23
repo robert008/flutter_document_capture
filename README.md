@@ -156,7 +156,9 @@ class FrameAnalysisResult {
 
 ## Author
 
-**Robert Chuang** - figo007007@gmail.com
+**Robert Chuang**
+- Email: figo007007@gmail.com
+- LinkedIn: https://www.linkedin.com/in/robert-chuang-88090932b
 
 ## License
 
