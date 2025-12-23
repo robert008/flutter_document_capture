@@ -154,6 +154,10 @@ class FrameAnalysisResult {
 
 - [flutter_ocr_kit](https://github.com/robert008/flutter_ocr_kit) - OCR + Layout Detection
 
+## Author
+
+**Robert Chuang** - figo007007@gmail.com
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
